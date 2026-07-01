@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <base href="/SotongContentsPromo/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI 음악, 지역 생활 영상, 시골 생활 콘텐츠, 앱 홍보 영상, 쇼츠 콘텐츠를 제작하는 소통웨어 콘텐츠 사업 소개 사이트">
+
+  <meta property="og:title" content="소통웨어 콘텐츠 - AI 음악과 지역 생활 영상">
+  <meta property="og:description" content="AI 음악과 생활밀착 영상을 결합해 앱, 전자책, 지역 콘텐츠와 연결하는 소통웨어 콘텐츠 랩">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.svg">
+  <meta property="og:locale" content="ko_KR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="소통웨어 콘텐츠 - AI 음악과 지역 생활 영상">
+  <meta name="twitter:description" content="AI 음악과 생활밀착 영상을 결합해 앱, 전자책, 지역 콘텐츠와 연결하는 소통웨어 콘텐츠 랩">
+  <meta name="twitter:image" content="assets/og-image.svg">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="소통웨어 콘텐츠">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>소통웨어 콘텐츠 - AI 음악과 지역 생활 영상</title>
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #0A0E1A;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #94A3B8;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading" id="loading">소통웨어 콘텐츠 로딩 중...</div>
+  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var loading = document.getElementById('loading');
+      if (loading) loading.remove();
+    });
+  </script>
+</body>
+</html>

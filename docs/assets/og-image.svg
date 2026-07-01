@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0E1A"/>
+      <stop offset="50%" style="stop-color:#12182B"/>
+      <stop offset="100%" style="stop-color:#0F1729"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2DD4BF"/>
+      <stop offset="100%" style="stop-color:#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4A853"/>
+      <stop offset="100%" style="stop-color:#E8C97A"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="15%" cy="75%" r="35%">
+      <stop offset="0%" style="stop-color:#2DD4BF;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#2DD4BF;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="#1A2238" fill-opacity="0.5" stroke="#2A3548" stroke-width="1"/>
+
+  <rect x="100" y="120" width="4" height="48" rx="2" fill="url(#accent)"/>
+
+  <text x="120" y="155" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="52" font-weight="700" fill="#F8FAFC">Œµè´ XP </text>
+
+  <text x="120" y="210" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="28" font-weight="500" fill="url(#gold)">Sotong Contents Lab</text>
+
+  <line x1="120" y1="240" x2="480" y2="240" stroke="#334155" stroke-width="1"/>
+
+  <text x="120" y="290" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="24" font-weight="400" fill="#CBD5E1">AI Music · Local Video · App Promo</text>
+
+  <g transform="translate(120, 340)">
+    <rect x="0" y="0" width="140" height="36" rx="18" fill="#1E293B" stroke="#334155"/>
+    <text x="70" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94A3B8">AI Music</text>
+
+    <rect x="155" y="0" width="160" height="36" rx="18" fill="#1E293B" stroke="#334155"/>
+    <text x="235" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94A3B8">Local Life Video</text>
+
+    <rect x="330" y="0" width="150" height="36" rx="18" fill="#1E293B" stroke="#334155"/>
+    <text x="405" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94A3B8">YouTube Contents</text>
+
+    <rect x="0" y="50" width="130" height="36" rx="18" fill="#1E293B" stroke="#334155"/>
+    <text x="65" y="74" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94A3B8">App Promo</text>
+
+    <rect x="145" y="50" width="100" height="36" rx="18" fill="#1E293B" stroke="#334155"/>
+    <text x="195" y="74" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94A3B8">Shorts</text>
+
+    <rect x="260" y="50" width="140" height="36" rx="18" fill="#1E293B" stroke="#334155"/>
+    <text x="330" y="74" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#94A3B8">Storytelling</text>
+  </g>
+
+  <g transform="translate(780, 180)">
+    <circle cx="120" cy="120" r="100" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.4"/>
+    <circle cx="120" cy="120" r="70" fill="none" stroke="#D4A853" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="120,80 145,130 95,130" fill="url(#accent)" opacity="0.8"/>
+    <rect x="95" y="145" width="50" height="6" rx="3" fill="#2DD4BF" opacity="0.6"/>
+    <rect x="85" y="158" width="70" height="4" rx="2" fill="#8B5CF6" opacity="0.4"/>
+    <rect x="90" y="168" width="60" height="4" rx="2" fill="#D4A853" opacity="0.4"/>
+  </g>
+
+  <text x="120" y="560" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="16" fill="#64748B">sotongware@naver.com · Public Promo Site</text>
+</svg>
