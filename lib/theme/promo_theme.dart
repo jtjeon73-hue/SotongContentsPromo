@@ -5,6 +5,7 @@ abstract final class PromoTheme {
   static const Color richBlack = Color(0xFF050508);
   static const Color surfaceDark = Color(0xFF12182B);
   static const Color surfaceCard = Color(0xFF1A2238);
+  static const Color surfaceElevated = Color(0xFF1E2640);
   static const Color teal = Color(0xFF2DD4BF);
   static const Color tealMuted = Color(0xFF14B8A6);
   static const Color purple = Color(0xFF8B5CF6);
@@ -14,6 +15,7 @@ abstract final class PromoTheme {
   static const Color offWhite = Color(0xFFF8FAFC);
   static const Color textMuted = Color(0xFF94A3B8);
   static const Color textSecondary = Color(0xFFCBD5E1);
+  static const Color borderSubtle = Color(0xFF2A3548);
 
   static ThemeData get darkTheme {
     final colorScheme = ColorScheme.dark(
@@ -92,7 +94,7 @@ abstract final class PromoTheme {
       cardTheme: CardThemeData(
         color: surfaceCard,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -100,7 +102,7 @@ abstract final class PromoTheme {
           foregroundColor: richBlack,
           padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           elevation: 0,
           textStyle: const TextStyle(
@@ -116,7 +118,7 @@ abstract final class PromoTheme {
           side: const BorderSide(color: Color(0xFF334155), width: 1.5),
           padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           textStyle: const TextStyle(
             fontSize: 15,
@@ -145,10 +147,14 @@ abstract final class PromoTheme {
 
   static BoxDecoration get cardDecoration => BoxDecoration(
     color: surfaceCard,
-    borderRadius: BorderRadius.circular(20),
-    border: Border.all(color: const Color(0xFF2A3548)),
-    boxShadow: const [
-      BoxShadow(color: Color(0x40000000), blurRadius: 24, offset: Offset(0, 8)),
+    borderRadius: BorderRadius.circular(16),
+    border: Border.all(color: borderSubtle.withValues(alpha: 0.9)),
+    boxShadow: [
+      BoxShadow(
+        color: richBlack.withValues(alpha: 0.35),
+        blurRadius: 24,
+        offset: const Offset(0, 8),
+      ),
     ],
   );
 
@@ -156,9 +162,15 @@ abstract final class PromoTheme {
     gradient: LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [Color(0xFF0A0E1A), Color(0xFF12182B), Color(0xFF0F1729)],
+      colors: [deepNavy, surfaceDark, Color(0xFF0F1729)],
     ),
   );
+
+  static BoxDecoration get sectionDecoration =>
+      const BoxDecoration(color: deepNavy);
+
+  static BoxDecoration get alternateSectionDecoration =>
+      const BoxDecoration(color: surfaceDark);
 
   static LinearGradient get accentGradient =>
       const LinearGradient(colors: [teal, purple]);
@@ -166,17 +178,15 @@ abstract final class PromoTheme {
   static LinearGradient get goldGradient =>
       const LinearGradient(colors: [gold, goldLight]);
 
-  static double sectionPadding(BuildContext context) {
+  static double horizontalPadding(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    if (width >= 1200) return 80;
-    if (width >= 768) return 48;
-    return 24;
+    if (width < 600) return 20;
+    if (width < 900) return 40;
+    return 48;
   }
 
-  static int gridCrossAxisCount(BuildContext context, {int max = 3}) {
+  static double verticalSectionPadding(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    if (width >= 1100) return max;
-    if (width >= 700) return 2;
-    return 1;
+    return width < 600 ? 56 : 80;
   }
 }

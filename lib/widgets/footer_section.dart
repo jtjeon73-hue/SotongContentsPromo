@@ -13,7 +13,7 @@ class FooterSection extends StatelessWidget {
       width: double.infinity,
       color: PromoTheme.richBlack,
       padding: EdgeInsets.symmetric(
-        horizontal: PromoTheme.sectionPadding(context),
+        horizontal: PromoTheme.horizontalPadding(context),
         vertical: 48,
       ),
       child: Center(

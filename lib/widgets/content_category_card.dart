@@ -15,18 +15,22 @@ class ContentCategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       decoration: PromoTheme.cardDecoration,
       padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 12,
+            runSpacing: 10,
             children: [
               Container(
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(12),
                   color: category.accentColor.withValues(alpha: 0.15),
                 ),
                 child: Icon(
@@ -35,7 +39,6 @@ class ContentCategoryCard extends StatelessWidget {
                   size: 24,
                 ),
               ),
-              const Spacer(),
               if (showExpandHint && category.isExpandable)
                 Container(
                   padding: const EdgeInsets.symmetric(
@@ -60,12 +63,19 @@ class ContentCategoryCard extends StatelessWidget {
                 ),
             ],
           ),
-          const SizedBox(height: 20),
-          Text(category.title, style: Theme.of(context).textTheme.titleLarge),
+          const SizedBox(height: 18),
+          Text(
+            category.title,
+            style: Theme.of(context).textTheme.titleLarge,
+            softWrap: true,
+          ),
           const SizedBox(height: 10),
           Text(
             category.description,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(height: 1.65),
+            softWrap: true,
           ),
         ],
       ),
@@ -81,16 +91,17 @@ class ContentDirectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       decoration: PromoTheme.cardDecoration,
-      padding: const EdgeInsets.all(28),
+      padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 52,
-            height: 52,
+            width: 48,
+            height: 48,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(12),
               gradient: LinearGradient(
                 colors: [
                   direction.accentColor.withValues(alpha: 0.3),
@@ -98,16 +109,21 @@ class ContentDirectionCard extends StatelessWidget {
                 ],
               ),
             ),
-            child: Icon(direction.icon, color: direction.accentColor, size: 26),
+            child: Icon(direction.icon, color: direction.accentColor, size: 24),
           ),
-          const SizedBox(height: 22),
-          Text(direction.title, style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 12),
+          const SizedBox(height: 18),
+          Text(
+            direction.title,
+            style: Theme.of(context).textTheme.titleLarge,
+            softWrap: true,
+          ),
+          const SizedBox(height: 10),
           Text(
             direction.description,
             style: Theme.of(
               context,
             ).textTheme.bodyMedium?.copyWith(height: 1.7),
+            softWrap: true,
           ),
         ],
       ),

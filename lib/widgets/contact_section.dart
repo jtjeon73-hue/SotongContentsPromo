@@ -38,7 +38,7 @@ class ContactSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         border: Border.all(color: PromoTheme.purple.withValues(alpha: 0.3)),
       ),
-      padding: const EdgeInsets.all(40),
+      padding: EdgeInsets.all(MediaQuery.sizeOf(context).width < 600 ? 24 : 40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -49,14 +49,16 @@ class ContactSection extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const SizedBox(height: 24),
-          Row(
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 10,
+            runSpacing: 10,
             children: [
               const Icon(
                 Icons.email_outlined,
                 color: PromoTheme.teal,
                 size: 22,
               ),
-              const SizedBox(width: 10),
               SelectableText(
                 SampleContentsData.contactEmail,
                 style: Theme.of(

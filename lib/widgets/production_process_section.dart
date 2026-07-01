@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sotong_contents_promo/data/sample_contents_data.dart';
+import 'package:sotong_contents_promo/models/channel_plan.dart';
 import 'package:sotong_contents_promo/theme/promo_theme.dart';
 import 'package:sotong_contents_promo/widgets/section_title.dart';
 
@@ -8,90 +9,104 @@ class ProductionProcessSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isWide = MediaQuery.sizeOf(context).width >= 900;
+    final steps = SampleContentsData.productionSteps;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SectionTitle(title: '콘텐츠 제작 흐름'),
+        const SectionTitle(
+          title: '콘텐츠 제작 흐름',
+          subtitle: 'AI 음악과 영상 콘텐츠를 만드는 7단계 과정입니다.',
+        ),
         const SizedBox(height: 40),
-        ...SampleContentsData.productionSteps.asMap().entries.map((entry) {
-          final index = entry.key;
-          final step = entry.value;
-          final isLast = index == SampleContentsData.productionSteps.length - 1;
-
-          return IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SizedBox(
-                  width: isWide ? 80 : 56,
-                  child: Column(
+        Column(
+          children: [
+            for (int i = 0; i < steps.length; i++) ...[
+              _StepCard(step: steps[i]),
+              if (i < steps.length - 1)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Row(
                     children: [
+                      const SizedBox(width: 22),
                       Container(
-                        width: 44,
-                        height: 44,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: PromoTheme.accentGradient,
-                          boxShadow: [
-                            BoxShadow(
-                              color: PromoTheme.teal.withValues(alpha: 0.3),
-                              blurRadius: 12,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Center(
-                          child: Text(
-                            '${step.step}',
-                            style: const TextStyle(
-                              color: PromoTheme.richBlack,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
+                        width: 2,
+                        height: 24,
+                        color: PromoTheme.teal.withValues(alpha: 0.35),
                       ),
-                      if (!isLast)
-                        Expanded(
-                          child: Container(
-                            width: 2,
-                            margin: const EdgeInsets.symmetric(vertical: 4),
-                            color: PromoTheme.teal.withValues(alpha: 0.3),
-                          ),
-                        ),
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: isLast ? 0 : 28),
-                    child: Container(
-                      decoration: PromoTheme.cardDecoration,
-                      padding: const EdgeInsets.all(24),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            step.title,
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            step.description,
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+            ],
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _StepCard extends StatelessWidget {
+  const _StepCard({required this.step});
+
+  final ProductionStep step;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: PromoTheme.cardDecoration,
+      padding: const EdgeInsets.all(24),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              gradient: PromoTheme.accentGradient,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: PromoTheme.teal.withValues(alpha: 0.25),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
                 ),
               ],
             ),
-          );
-        }),
-      ],
+            child: Center(
+              child: Text(
+                '${step.step}',
+                style: const TextStyle(
+                  color: PromoTheme.richBlack,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  step.title,
+                  style: Theme.of(context).textTheme.titleLarge,
+                  softWrap: true,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  step.description,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    height: 1.65,
+                  ),
+                  softWrap: true,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

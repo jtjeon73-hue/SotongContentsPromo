@@ -17,7 +17,8 @@ class HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isWide = MediaQuery.sizeOf(context).width >= 900;
-    final padding = PromoTheme.sectionPadding(context);
+    final isNarrow = MediaQuery.sizeOf(context).width < 600;
+    final padding = PromoTheme.horizontalPadding(context);
 
     return Container(
       width: double.infinity,
@@ -59,7 +60,12 @@ class HeroSection extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(padding, 96, padding, 80),
+            padding: EdgeInsets.fromLTRB(
+              padding,
+              isNarrow ? 72 : 96,
+              padding,
+              isNarrow ? 56 : 80,
+            ),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1200),

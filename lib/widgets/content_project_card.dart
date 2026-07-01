@@ -23,12 +23,14 @@ class ContentProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final statusColor = _statusColor();
+    final isNarrow = MediaQuery.sizeOf(context).width < 600;
 
     return Container(
+      width: double.infinity,
       decoration: PromoTheme.cardDecoration.copyWith(
         border: Border.all(color: project.accentColor.withValues(alpha: 0.2)),
       ),
-      padding: const EdgeInsets.all(28),
+      padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,15 +38,15 @@ class ContentProjectCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 52,
-                height: 52,
+                width: 48,
+                height: 48,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(12),
                   color: project.accentColor.withValues(alpha: 0.15),
                 ),
-                child: Icon(project.icon, color: project.accentColor, size: 26),
+                child: Icon(project.icon, color: project.accentColor, size: 24),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 14),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,6 +54,7 @@ class ContentProjectCard extends StatelessWidget {
                     Text(
                       project.name,
                       style: Theme.of(context).textTheme.titleLarge,
+                      softWrap: true,
                     ),
                     const SizedBox(height: 6),
                     Text(
@@ -59,52 +62,80 @@ class ContentProjectCard extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: PromoTheme.textMuted,
                         fontSize: 13,
+                        height: 1.5,
                       ),
+                      softWrap: true,
                     ),
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: statusColor.withValues(alpha: 0.15),
-                  border: Border.all(color: statusColor.withValues(alpha: 0.4)),
-                ),
-                child: Text(
-                  project.statusLabel,
-                  style: TextStyle(
-                    color: statusColor,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
+              if (!isNarrow) ...[
+                const SizedBox(width: 12),
+                _StatusBadge(label: project.statusLabel, color: statusColor),
+              ],
             ],
           ),
+          if (isNarrow) ...[
+            const SizedBox(height: 12),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: _StatusBadge(
+                label: project.statusLabel,
+                color: statusColor,
+              ),
+            ),
+          ],
           const SizedBox(height: 20),
           _InfoRow(label: '현재 단계', value: project.stage),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           Text(
             project.description,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(height: 1.7),
+            softWrap: true,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
           _BulletSection(
             title: '주요 구성',
             items: project.components,
             color: project.accentColor,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
           _BulletSection(
             title: '활용 방향',
             items: project.usageDirections,
             color: PromoTheme.teal,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _StatusBadge extends StatelessWidget {
+  const _StatusBadge({required this.label, required this.color});
+
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: color.withValues(alpha: 0.15),
+        border: Border.all(color: color.withValues(alpha: 0.4)),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: color,
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+        softWrap: true,
       ),
     );
   }
@@ -118,23 +149,23 @@ class _InfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '$label: ',
+          label,
           style: Theme.of(context).textTheme.labelLarge?.copyWith(
             color: PromoTheme.gold,
             fontSize: 13,
           ),
         ),
-        Expanded(
-          child: Text(
-            value,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(fontSize: 14),
-          ),
+        const SizedBox(height: 4),
+        Text(
+          value,
+          style: Theme.of(
+            context,
+          ).textTheme.bodyMedium?.copyWith(fontSize: 14, height: 1.6),
+          softWrap: true,
         ),
       ],
     );
@@ -185,7 +216,8 @@ class _BulletSection extends StatelessWidget {
                     item,
                     style: Theme.of(
                       context,
-                    ).textTheme.bodyMedium?.copyWith(fontSize: 14),
+                    ).textTheme.bodyMedium?.copyWith(fontSize: 14, height: 1.6),
+                    softWrap: true,
                   ),
                 ),
               ],
