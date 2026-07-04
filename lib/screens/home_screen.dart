@@ -6,6 +6,7 @@ import 'package:sotong_contents_promo/widgets/content_category_card.dart';
 import 'package:sotong_contents_promo/widgets/content_project_card.dart';
 import 'package:sotong_contents_promo/widgets/footer_section.dart';
 import 'package:sotong_contents_promo/widgets/hero_section.dart';
+import 'package:sotong_contents_promo/widgets/sotong_control_hub_section.dart';
 import 'package:sotong_contents_promo/widgets/monetization_section.dart';
 import 'package:sotong_contents_promo/widgets/production_process_section.dart';
 import 'package:sotong_contents_promo/widgets/responsive_card_grid.dart';
@@ -22,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _directionKey = GlobalKey();
   final GlobalKey _portfolioKey = GlobalKey();
+  final GlobalKey _hubKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
   @override
@@ -52,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: HeroSection(
                 onViewDirection: () => _scrollTo(_directionKey),
                 onViewPortfolio: () => _scrollTo(_portfolioKey),
-                onContact: () => _scrollTo(_contactKey),
+                onContact: () => _scrollTo(_hubKey),
               ),
             ),
             SliverToBoxAdapter(
@@ -145,6 +147,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 alternate: true,
                 child: FutureIdeasSection(),
               ),
+            ),
+            SliverToBoxAdapter(
+              key: _hubKey,
+              child: const SotongControlHubSection(),
             ),
             SliverToBoxAdapter(
               child: SectionContainer(
