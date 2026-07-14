@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Sotong Contents Promo Maskable">
+  <defs>
+    <linearGradient id="bgGradM" x1="120" y1="80" x2="900" y2="940" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18243A"/>
+      <stop offset="50%" stop-color="#101A2B"/>
+      <stop offset="100%" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="playGradM" x1="360" y1="300" x2="680" y2="680" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF5C68"/>
+      <stop offset="50%" stop-color="#E548A7"/>
+      <stop offset="100%" stop-color="#7C5CFC"/>
+    </linearGradient>
+    <linearGradient id="sGradM" x1="380" y1="320" x2="640" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F7FAFF"/>
+      <stop offset="100%" stop-color="#29D3E2"/>
+    </linearGradient>
+    <linearGradient id="waveGradM" x1="280" y1="760" x2="740" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7C5CFC"/>
+      <stop offset="50%" stop-color="#E548A7"/>
+      <stop offset="100%" stop-color="#29D3E2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Full-bleed background for OS masks -->
+  <rect width="1024" height="1024" fill="url(#bgGradM)"/>
+
+  <!-- Keep main symbols inside ~72% safe zone -->
+  <g transform="translate(512 512) scale(0.72) translate(-512 -512)">
+    <circle cx="280" cy="280" r="160" fill="#7C5CFC" fill-opacity="0.18"/>
+    <circle cx="740" cy="360" r="140" fill="#E548A7" fill-opacity="0.14"/>
+    <circle cx="560" cy="740" r="160" fill="#29D3E2" fill-opacity="0.12"/>
+
+    <path d="M330 290 L700 512 L330 734 Z" fill="url(#playGradM)"/>
+    <path d="M380 350 L630 512 L380 674 Z" fill="#101A2B" fill-opacity="0.30"/>
+
+    <path d="M620 332
+             C620 284 568 248 500 248
+             C422 248 370 292 370 358
+             C370 416 416 444 508 470
+             C600 496 652 534 652 604
+             C652 678 586 728 500 728
+             C422 728 364 690 346 636"
+          fill="none"
+          stroke="url(#sGradM)"
+          stroke-width="92"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <g fill="url(#waveGradM)">
+      <rect x="278" y="760" width="40" height="74" rx="14"/>
+      <rect x="342" y="732" width="40" height="102" rx="14"/>
+      <rect x="406" y="706" width="40" height="128" rx="14"/>
+      <rect x="470" y="726" width="40" height="108" rx="14"/>
+      <rect x="534" y="694" width="40" height="140" rx="14"/>
+      <rect x="598" y="718" width="40" height="116" rx="14"/>
+      <rect x="662" y="710" width="40" height="124" rx="14"/>
+      <rect x="726" y="740" width="40" height="94" rx="14"/>
+    </g>
+
+    <g fill="#29D3E2">
+      <circle cx="240" cy="260" r="16"/>
+      <circle cx="784" cy="270" r="14"/>
+      <circle cx="800" cy="520" r="12"/>
+      <circle cx="228" cy="520" r="12"/>
+      <path d="M190 180 L202 210 L232 222 L202 234 L190 264 L178 234 L148 222 L178 210 Z"/>
+      <path d="M834 186 L844 208 L866 218 L844 228 L834 250 L824 228 L802 218 L824 208 Z"/>
+    </g>
+  </g>
+</svg>

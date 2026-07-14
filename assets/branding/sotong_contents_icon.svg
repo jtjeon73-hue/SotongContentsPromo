@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Sotong Contents Promo">
+  <defs>
+    <linearGradient id="bgGrad" x1="120" y1="80" x2="900" y2="940" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18243A"/>
+      <stop offset="50%" stop-color="#101A2B"/>
+      <stop offset="100%" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="playGrad" x1="340" y1="260" x2="720" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF5C68"/>
+      <stop offset="50%" stop-color="#E548A7"/>
+      <stop offset="100%" stop-color="#7C5CFC"/>
+    </linearGradient>
+    <linearGradient id="sGrad" x1="360" y1="280" x2="660" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F7FAFF"/>
+      <stop offset="100%" stop-color="#29D3E2"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="220" y1="780" x2="800" y2="780" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7C5CFC"/>
+      <stop offset="50%" stop-color="#E548A7"/>
+      <stop offset="100%" stop-color="#29D3E2"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="48" y="48" width="928" height="928" rx="204" ry="204" fill="url(#bgGrad)"/>
+  <rect x="48" y="48" width="928" height="928" rx="204" ry="204" fill="none" stroke="#29D3E2" stroke-opacity="0.22" stroke-width="10"/>
+
+  <circle cx="280" cy="260" r="170" fill="#7C5CFC" fill-opacity="0.2"/>
+  <circle cx="760" cy="340" r="150" fill="#E548A7" fill-opacity="0.16"/>
+  <circle cx="560" cy="760" r="180" fill="#29D3E2" fill-opacity="0.12"/>
+
+  <!-- Video play mark -->
+  <path d="M318 268 L722 512 L318 756 Z" fill="url(#playGrad)"/>
+  <path d="M372 348 L630 512 L372 676 Z" fill="#101A2B" fill-opacity="0.30"/>
+
+  <!-- Brand S -->
+  <path d="M620 332
+           C620 284 568 248 500 248
+           C422 248 370 292 370 358
+           C370 416 416 444 508 470
+           C600 496 652 534 652 604
+           C652 678 586 728 500 728
+           C422 728 364 690 346 636"
+        fill="none"
+        stroke="url(#sGrad)"
+        stroke-width="88"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Music equalizer -->
+  <g fill="url(#waveGrad)">
+    <rect x="236" y="792" width="46" height="82" rx="16"/>
+    <rect x="310" y="760" width="46" height="114" rx="16"/>
+    <rect x="384" y="730" width="46" height="144" rx="16"/>
+    <rect x="458" y="754" width="46" height="120" rx="16"/>
+    <rect x="532" y="716" width="46" height="158" rx="16"/>
+    <rect x="606" y="744" width="46" height="130" rx="16"/>
+    <rect x="680" y="734" width="46" height="140" rx="16"/>
+    <rect x="754" y="770" width="46" height="104" rx="16"/>
+  </g>
+
+  <!-- AI nodes + sparks -->
+  <g fill="#29D3E2">
+    <circle cx="198" cy="220" r="18"/>
+    <circle cx="826" cy="236" r="16"/>
+    <circle cx="844" cy="530" r="14"/>
+    <circle cx="186" cy="540" r="14"/>
+    <path d="M148 148 L164 190 L206 206 L164 222 L148 264 L132 222 L90 206 L132 190 Z"/>
+    <path d="M876 156 L888 182 L914 194 L888 206 L876 232 L864 206 L838 194 L864 182 Z"/>
+  </g>
+  <g stroke="#29D3E2" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.9">
+    <path d="M198 220 L250 268"/>
+    <path d="M826 236 L770 290"/>
+    <path d="M844 530 L780 500"/>
+    <path d="M186 540 L250 500"/>
+  </g>
+</svg>

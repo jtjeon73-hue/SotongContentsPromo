@@ -31,6 +31,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+.firebase/
+tool/node_modules/
 /coverage/
 
 # Symbolication related
