@@ -97,6 +97,7 @@ class HeroSection extends StatelessWidget {
                       SampleContentsData.siteName,
                       style: Theme.of(context).textTheme.displayLarge?.copyWith(
                         fontSize: isWide ? 52 : 36,
+                        color: PromoTheme.offWhite,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -119,7 +120,9 @@ class HeroSection extends StatelessWidget {
                         '소통웨어 콘텐츠는 AI 음악, 지역 생활밀착 영상, 시골 생활 콘텐츠, 앱 홍보 영상, 쇼츠 콘텐츠를 결합하여 '
                         '사람들이 공감하고 공유할 수 있는 콘텐츠를 기획하고 제작하는 콘텐츠 사업입니다. '
                         '음악, 영상, 앱, 지역 이야기, 전자책, 스마트스토어까지 연결되는 수익형 콘텐츠 생태계를 목표로 합니다.',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: const Color(0xFFCBD5E1),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 36),
@@ -132,10 +135,18 @@ class HeroSection extends StatelessWidget {
                           child: const Text('콘텐츠 방향 보기'),
                         ),
                         OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: PromoTheme.offWhite,
+                            side: const BorderSide(color: Color(0xFF64748B)),
+                          ),
                           onPressed: onViewPortfolio,
                           child: const Text('제작 예정 콘텐츠 보기'),
                         ),
                         OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: PromoTheme.offWhite,
+                            side: const BorderSide(color: Color(0xFF64748B)),
+                          ),
                           onPressed: onContact,
                           child: const Text('문의하기'),
                         ),

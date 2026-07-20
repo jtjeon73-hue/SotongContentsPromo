@@ -41,7 +41,7 @@ class FooterSection extends StatelessWidget {
                 'AI Music / YouTube Contents / Local Life Video / App Promo Video',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: PromoTheme.textMuted,
+                  color: const Color(0xFF94A3B8),
                   fontSize: 13,
                 ),
               ),
@@ -49,7 +49,7 @@ class FooterSection extends StatelessWidget {
               Text(
                 'Contact: ${PromoContact.email} · 소통총관제 연동',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: PromoTheme.textSecondary,
+                  color: const Color(0xFFCBD5E1),
                   fontSize: 14,
                 ),
               ),
@@ -57,7 +57,7 @@ class FooterSection extends StatelessWidget {
               Text(
                 'Public Promo Site',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: PromoTheme.textMuted,
+                  color: const Color(0xFF94A3B8),
                   fontSize: 12,
                 ),
               ),
@@ -67,7 +67,7 @@ class FooterSection extends StatelessWidget {
               Text(
                 '© $year Sotong Contents Lab. All rights reserved.',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: PromoTheme.textMuted,
+                  color: const Color(0xFF94A3B8),
                   fontSize: 12,
                 ),
               ),
